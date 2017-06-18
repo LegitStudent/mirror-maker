@@ -3,13 +3,13 @@
   
   "name": "Mirror Maker",
   "description": "Create a Streamable mirror for the video of the currently selected tab.",
-  "version": "0.0.1",
+  "version": "0.1.0",
 
   "browser_action": {
     "default_popup": "popup.html"
   },
   "permissions": [
     "activeTab",
-    "https://api.streamable.com/import?url=*"
+    "https://api.streamable.com/*"
   ]
 }
