@@ -3,7 +3,7 @@
   
   "name": "Mirror Maker",
   "description": "Create a Streamable mirror for the video of the currently selected tab.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
