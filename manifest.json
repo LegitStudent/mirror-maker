@@ -5,6 +5,8 @@
   "description": "Create a Streamable mirror for the video of the currently selected tab.",
   "version": "0.1.2",
   "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
     "128": "icons/128.png"
   },
 
