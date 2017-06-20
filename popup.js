@@ -1,5 +1,9 @@
 var streamableUrl = "https://api.streamable.com/import";
 
+function writeToInput(inputId, textToWrite) {
+  $(".upload-form > #" + inputId).val(textToWrite);
+}
+
 function uploadVideoToStreamable(url, title = "") {
   $.get(streamableUrl, { url, title }, function(response, status) {
     writeStatusMessage("Success! You may view your video at ", response.shortcode);
@@ -33,10 +37,26 @@ function writeStatusMessage(message, shortcode="") {
 }
 
 $(document).ready(function() {
+  /*
+    Copy current activeTab url to URL Input
+      > activeTabs permission grants temporary acccess to a user's tabs.
+  */
+  chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+    // tabs is an array of one tab
+    var currentTab = tabs[0];
+    writeToInput("title", currentTab.title);
+    writeToInput("url", currentTab.url);
+  });
+
+
+  /*
+    Upload Button Event Listener
+  */
   $(".upload-form > .btn").click(function() {
     var linkToUpload = $(".upload-form > #url").val();
     var titleOfVideo = $(".upload-form > #title").val();
 
     uploadVideoToStreamable(linkToUpload, titleOfVideo);
   });
+
 });
